@@ -32,3 +32,16 @@
     transform: translateY(0);
 }
 
+
+.btn-sm {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+}
+
+.card-export-import {
+    background-color: var(--panel-bg, #131b2e);
+    border: 1px solid var(--border-color, rgba(0, 240, 255, 0.2));
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
