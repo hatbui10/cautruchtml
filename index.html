@@ -91,6 +91,16 @@ student-manager</textarea>
     </div>
 </div>
 
+    <!-- Khu vực chứa nút bấm Export / Import -->
+<div class="control-buttons" style="margin-bottom: 15px;">
+    <button onclick="exportConfig()">💾 Export Cấu Hình</button>
+    
+    <!-- Nút bấm giả lập để gọi file input ẩn -->
+    <button onclick="document.getElementById('importFile').click()">📂 Import Cấu Hình</button>
+    
+    <!-- Input chọn file ẩn đi cho đẹp giao diện -->
+    <input type="file" id="importFile" accept=".json" style="display: none;" onchange="importConfig(event)">
+</div>
 <!-- Liên kết tới file JS trong thư mục js/ -->
 <script src="js/main.js"></script>
 
