@@ -1,0 +1,18 @@
+<!DOCTYPE html><html lang="vi"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Project Structure Builder</title><style>body{font-family:Arial;background:#1e1e1e;color:#eee;margin:20px}textarea,input{width:100%;background:#2b2b2b;color:#fff;border:1px solid #555;border-radius:6px;padding:8px;margin:6px 0}button{padding:10px 16px}.out{white-space:pre-wrap;background:#111;padding:10px;border-radius:6px}</style></head><body><h2>Project Structure Builder</h2><input id="title" value="My Project"><h3>CSS</h3><textarea id="css">style
+login
+student</textarea><h3>JS</h3><textarea id="js">firebase
+login
+student
+main</textarea><h3>HTML</h3><textarea id="html">project-builder
+student-manager</textarea><br><button onclick="build()">Tạo Code</button><h3>CSS</h3><div id="cssOut" class="out"></div><h3>JS</h3><div id="jsOut" class="out"></div><h3>HTML</h3><div id="htmlOut" class="out"></div><h3>index.html</h3><div id="indexOut" class="out"></div><script>
+function lines(id){return document.getElementById(id).value.split(/\n/).map(x=>x.trim()).filter(Boolean);}
+function build(){
+const css=lines('css'),js=lines('js'),ht=lines('html');
+const cssLinks=css.map(x=>'<link rel="stylesheet" href="css/'+x+'.css">').join('\n');
+const jsLinks=js.map(x=>'<script src="js/'+x+'.js"><\\/script>').join('\n');
+const menu=ht.map(x=>'<a href="'+x+'/">'+x+'</a>').join('\n');
+cssOut.textContent=cssLinks;jsOut.textContent=jsLinks;htmlOut.textContent=menu;
+indexOut.textContent='<!DOCTYPE html>\n<html lang="vi">\n<head>\n<meta charset="UTF-8">\n<title>'+title.value+'</title>\n\n'+cssLinks+'\n</head>\n<body>\n<h1>'+title.value+'</h1>\n'+menu+'\n\n'+jsLinks+'\n</body>\n</html>';
+}
+build();
+</script></body></html>
