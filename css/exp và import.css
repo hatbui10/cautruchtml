@@ -1,0 +1,33 @@
+/* --- KHUNG CHỨA NÚT ĐIỀU KHIỂN (EXPORT / IMPORT) --- */
+.control-buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 15px 0;
+}
+
+/* --- TÙY CHỈNH RIÊNG CHO NÚT EXPORT & IMPORT --- */
+.control-buttons button {
+    background: linear-gradient(135deg, #1e293b, #0f172a);
+    color: #00f0ff;
+    border: 1px solid rgba(0, 240, 255, 0.4);
+    padding: 10px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.control-buttons button:hover {
+    background: #00f0ff;
+    color: #0b0f19;
+    border-color: #00f0ff;
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.5);
+    transform: translateY(-2px);
+}
+
+.control-buttons button:active {
+    transform: translateY(0);
+}
