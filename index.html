@@ -91,16 +91,33 @@ student-manager</textarea>
     </div>
 </div>
 
-    <!-- Khu vực chứa nút bấm Export / Import -->
-<div class="control-buttons" style="margin-bottom: 15px;">
-    <button onclick="exportConfig()">💾 Export Cấu Hình</button>
+   <div class="card" style="margin-top: 15px;">
+    <h3>Quản lý Export / Import Hàm tự động</h3>
     
-    <!-- Nút bấm giả lập để gọi file input ẩn -->
-    <button onclick="document.getElementById('importFile').click()">📂 Import Cấu Hình</button>
+    <label>Nhập danh sách tên hàm (mỗi dòng 1 tên):</label>
+    <textarea id="funcNameInput" placeholder="openLoginModal&#10;closeLoginModal" oninput="generateExportImportCode()"></textarea>
     
-    <!-- Input chọn file ẩn đi cho đẹp giao diện -->
-    <input type="file" id="importFile" accept=".json" style="display: none;" onchange="importConfig(event)">
+    <div class="control-buttons" style="margin-top: 10px;">
+        <button onclick="generateExportImportCode()">⚡ Sinh Code Export/Import</button>
+        <button onclick="parseNamesFromCode()">📥 Quét tên hàm từ Code</button>
+    </div>
+
+    <!-- Ô hiển thị kết quả Code Export -->
+    <div class="output-box" style="margin-top: 15px;">
+        <label>1. Code để đặt vào file nguồn (Export):</label>
+        <pre id="exportOut"></pre>
+        <button onclick="copyText('exportOut')">Copy Export</button>
+    </div>
+
+    <!-- Ô hiển thị kết quả Code Import -->
+    <div class="output-box" style="margin-top: 15px;">
+        <label>2. Code để dán sang file cần dùng (Import):</label>
+        <pre id="importOut"></pre>
+        <button onclick="copyText('importOut')">Copy Import</button>
+    </div>
 </div>
+
+    
 <!-- Liên kết tới file JS trong thư mục js/ -->
 <script src="js/main.js"></script>
 
