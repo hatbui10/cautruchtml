@@ -91,39 +91,46 @@ student-manager</textarea>
     </div>
 </div>
 
-   <div class="card-export-import">
-    <h3>Quản lý Export / Import Hàm tự động</h3>
+
     
-    <!-- 1. Ô nhập tên file nguồn/đích -->
+   <div class="card-export-import">
+    <!-- Tiêu đề lớn theo yêu cầu -->
+    <h3 style="text-align: center; color: var(--accent-color, #00f0ff); margin-bottom: 20px;">
+        Hàm A sẽ lấy dữ liệu từ hàm B
+    </h3>
+    
+    <!-- Ô nhập tên file nguồn/đích -->
     <div class="input-group" style="margin-bottom: 12px;">
         <label for="targetFileName">Tên file nguồn / đích (để tạo đường dẫn import):</label>
         <input type="text" id="targetFileName" value="./uiRenderer.js" placeholder="Ví dụ: ./storage.js hoặc ./uiRenderer.js" oninput="generateExportImportCode()">
     </div>
 
-    <!-- 2. Ô nhập danh sách tên hàm -->
+    <!-- Ô nhập danh sách tên hàm -->
     <div class="input-group" style="margin-bottom: 12px;">
         <label for="funcNameInput">Nhập danh sách tên hàm (mỗi dòng 1 tên):</label>
         <textarea id="funcNameInput" placeholder="openLoginModal&#10;closeLoginModal" oninput="generateExportImportCode()"></textarea>
     </div>
     
-    <!-- 3. Các nút điều khiển -->
-    <div class="control-buttons" style="margin-bottom: 15px;">
+    <div class="control-buttons" style="margin-bottom: 10px;">
         <button class="btn btn-success" onclick="generateExportImportCode()">⚡ Sinh Code Export/Import</button>
         <button class="btn" onclick="parseNamesFromCode()">📥 Quét tên hàm từ Code</button>
     </div>
 
-    <!-- 4. Ô hiển thị kết quả Code Export -->
-    <div class="output-box" style="margin-top: 15px; position: relative;">
-        <label style="display: block; margin-bottom: 6px; color: var(--text-muted);">1. Code để đặt vào file nguồn (Export):</label>
-        <pre id="exportOut"></pre>
-        <button class="btn btn-sm" style="position: absolute; top: 30px; right: 10px;" onclick="copyText('exportOut')">📋 Copy</button>
-    </div>
+    <!-- BỐ CỤC 2 CỘT TEXTAREA (EX & IMP) -->
+    <div class="export-import-grid">
+        <!-- Cột trái: Export -->
+        <div class="column-box">
+            <label>1. Code Export (Đặt vào file nguồn):</label>
+            <textarea id="exportOut" placeholder="Code export sẽ hiện ở đây..."></textarea>
+            <button class="btn btn-sm" onclick="copyText('exportOut')">📋 Copy Export</button>
+        </div>
 
-    <!-- 5. Ô hiển thị kết quả Code Import -->
-    <div class="output-box" style="margin-top: 15px; position: relative;">
-        <label style="display: block; margin-bottom: 6px; color: var(--text-muted);">2. Code để dán sang file cần dùng (Import):</label>
-        <pre id="importOut"></pre>
-        <button class="btn btn-sm" style="position: absolute; top: 30px; right: 10px;" onclick="copyText('importOut')">📋 Copy</button>
+        <!-- Cột phải: Import -->
+        <div class="column-box">
+            <label>2. Code Import (Dán sang file cần dùng):</label>
+            <textarea id="importOut" placeholder="Code import sẽ hiện ở đây..."></textarea>
+            <button class="btn btn-sm" onclick="copyText('importOut')">📋 Copy Import</button>
+        </div>
     </div>
 </div>
     
